@@ -39,7 +39,7 @@ import { useIsMobile } from "@/hooks/use-mobile"
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 // biome-ignore lint/style/noMagicNumbers: Magic number detected. Extract it to a constant with a meaningful name.
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
-const SIDEBAR_WIDTH = "16rem"
+const SIDEBAR_WIDTH = "18rem"
 const SIDEBAR_WIDTH_MOBILE = "18rem"
 const SIDEBAR_WIDTH_ICON = "3rem"
 const SIDEBAR_KEYBOARD_SHORTCUT = "b"
@@ -201,7 +201,7 @@ function Sidebar({
     return (
       <Sheet onOpenChange={setOpenMobile} open={openMobile} {...props}>
         <SheetContent
-          className="w-(--sidebar-width) bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
+          className="w-(--sidebar-width) border-none bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden"
           data-mobile="true"
           data-sidebar="sidebar"
           data-slot="sidebar"
