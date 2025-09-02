@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 
+import { ThemeProvider } from "@/components/layout/provider/theme-provider"
+
 import { geistMono, geistSans } from "@/lib/fonts"
+import { cn } from "@/lib/utils"
 
 import "@/styles/globals.css"
 
@@ -20,11 +23,23 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       dir="ltr"
       lang="en"
+      suppressHydrationWarning
     >
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={cn(
+          geistSans.variable,
+          geistMono.variable,
+          "font-sans antialiased"
+        )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          disableTransitionOnChange
+          enableSystem
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
